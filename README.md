@@ -1,12 +1,12 @@
-# RADAR
+# Injective Risk Radar
 
-RADAR is a lightweight safety tool for Injective users. Paste an `inj...` wallet, scan live Injective indexer data, and get a clean readout of portfolio balances, exposure, liquidation posture, concentration risk, and AI-assisted risk notes before making a decision.
+Radar is a lightweight safety tool for Injective users. Paste an `inj...` wallet, scan live Injective indexer data, and get a clean readout of portfolio balances, exposure, liquidation posture, concentration risk, and AI-assisted risk notes before making a decision.
 
 It is intentionally minimal right now. The MVP does not store data, connect wallets, execute trades, run background jobs, or require authentication. That is a product choice for the first version: the safest demo path is a read-only risk check that cannot move funds, sign transactions, collect private keys, or pretend to know more than the indexer returns.
 
 ## Why This Makes Injective Safer
 
-Injective gives users fast access to markets, leverage, orders, and on-chain portfolio data. That speed is useful, but it also makes it easy to miss basic risk signals before taking action. RADAR adds a neutral review layer in front of that moment.
+Injective gives users fast access to markets, leverage, orders, and on-chain portfolio data. That speed is useful, but it also makes it easy to miss basic risk signals before taking action. Risk Radar adds a neutral review layer in front of that moment.
 
 The tool helps users see:
 
@@ -27,10 +27,7 @@ This is a submission-ready MVP, not a full risk platform. It proves the core saf
 wallet address -> live Injective read -> deterministic metrics -> clear risk UI -> AI explanation
 ```
 
-The app stays minimal because adding wallet connection, transaction signing, alerts, persistence, or automated recommendations would increase risk and review scope. Those features should come after the read-only analysis layer is dependable.
-
 ## Demo Flow
-
 1. Open the app.
 2. Paste an Injective wallet address.
 3. Select `mainnet` or `testnet`.
@@ -121,9 +118,7 @@ INJECTIVE_INDEXER_GRPC_ENDPOINT=
 Notes:
 
 - `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, and `GOOGLE_API_KEY` are read only by the server-side API route.
-- `CLAUDE_MODEL` defaults to `claude-sonnet-4-20250514`.
-- If `ANTHROPIC_API_KEY` is missing, the app uses `GEMINI_API_KEY` or `GOOGLE_API_KEY` with `GEMINI_MODEL` before falling back to the local deterministic analysis.
-- If the requested Claude model is unavailable for your Anthropic account, set `CLAUDE_MODEL=claude-sonnet-4-6`.
+
 - `INJECTIVE_INDEXER_GRPC_ENDPOINT` is optional. If omitted, the app uses the endpoint from `@injectivelabs/networks`.
 
 ## Install
@@ -237,17 +232,9 @@ Set these as server environment variables:
 - `INJECTIVE_NETWORK`
 - `INJECTIVE_INDEXER_GRPC_ENDPOINT`, if using a custom endpoint
 
-Do not expose `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, or `GOOGLE_API_KEY` through `NEXT_PUBLIC_*` variables.
 
-## Submission Notes
 
-RADAR is built for a hackathon/demo review path:
 
-- Working app: scan a wallet and inspect the tabbed response UI.
-- Injective integration: live account portfolio, market, position, order, and pricing data through Injective SDK/indexer APIs.
-- AI integration: server-side Claude/Gemini risk narrative with deterministic local fallback.
-- Safety: informational risk analysis only; no trading, signing, execution, wallet connection, or private key handling.
-- Proof-friendly behavior: invalid-address validation, live scan state, empty wallet state, partial-pricing warnings, and AI fallback text when quota/provider calls fail.
 
 ## Known Limitations
 
