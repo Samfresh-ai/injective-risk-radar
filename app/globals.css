@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #f8fafc;
+}
+
+body {
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.28);
+  color: #ecfdf5;
+}
+
+.radar-loader {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  border: 1px solid rgba(52, 211, 153, 0.24);
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle, rgba(52, 211, 153, 0.14) 0 2px, transparent 3px),
+    repeating-radial-gradient(circle, transparent 0 28px, rgba(148, 163, 184, 0.12) 29px 30px),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.2), rgba(2, 6, 23, 0.9));
+  box-shadow: 0 0 52px rgba(52, 211, 153, 0.16), inset 0 0 40px rgba(15, 23, 42, 0.8);
+}
+
+.radar-loader::before,
+.radar-loader::after {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 1px;
+  height: 100%;
+  background: rgba(148, 163, 184, 0.16);
+  content: "";
+  transform-origin: top;
+}
+
+.radar-loader::after {
+  transform: rotate(90deg);
+}
+
+.radar-loader__sweep {
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 0deg, rgba(52, 211, 153, 0.42), transparent 64deg);
+  animation: radar-sweep 1.8s linear infinite;
+}
+
+.radar-loader__dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #6ee7b7;
+  box-shadow: 0 0 16px rgba(110, 231, 183, 0.9);
+}
+
+.radar-loader__dot--one {
+  left: 62%;
+  top: 34%;
+}
+
+.radar-loader__dot--two {
+  left: 33%;
+  top: 61%;
+}
+
+@keyframes radar-sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scan-stream {
+  width: max-content;
+  min-width: 100%;
+  white-space: nowrap;
+  animation: scan-stream 8s linear infinite;
+}
+
+@keyframes scan-stream {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-42%);
+  }
+}
+
+.wallet-console .bg-slate-950,
+.wallet-console [class~="bg-slate-950/70"],
+.wallet-console [class~="bg-slate-950/80"],
+.wallet-console .bg-slate-900,
+.wallet-console [class~="bg-slate-900/60"],
+.wallet-console [class~="bg-slate-900/70"],
+.wallet-console [class~="bg-slate-900/75"],
+.wallet-console [class~="bg-slate-900/80"],
+.wallet-console [class~="bg-slate-900/45"] {
+  background-color: #ffffff !important;
+}
+
+.wallet-console .bg-slate-800 {
+  background-color: #e2e8f0 !important;
+}
+
+.wallet-console .border-slate-800,
+.wallet-console .border-slate-700,
+.wallet-console .divide-slate-900 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #e2e8f0 !important;
+}
+
+.wallet-console .text-slate-50,
+.wallet-console .text-slate-100,
+.wallet-console .text-slate-200,
+.wallet-console .text-slate-300 {
+  color: #0f172a !important;
+}
+
+.wallet-console .text-slate-400,
+.wallet-console .text-slate-500 {
+  color: #64748b !important;
+}
+
+.wallet-console .text-emerald-200,
+.wallet-console .text-emerald-300 {
+  color: #047857 !important;
+}
+
+.wallet-console .text-amber-100,
+.wallet-console .text-amber-200,
+.wallet-console .text-amber-300 {
+  color: #b45309 !important;
+}
+
+.wallet-console .text-rose-100,
+.wallet-console .text-rose-200,
+.wallet-console .text-rose-300,
+.wallet-console .text-red-200,
+.wallet-console .text-red-300 {
+  color: #be123c !important;
+}
+
+.theme-dark.wallet-console,
+.theme-dark .bg-slate-50 {
+  background-color: #020617 !important;
+  color: #f8fafc !important;
+}
+
+.theme-dark .bg-white {
+  background-color: #0f172a !important;
+}
+
+.theme-dark .bg-blue-50 {
+  background-color: rgba(37, 99, 235, 0.14) !important;
+}
+
+.theme-dark .bg-slate-100,
+.theme-dark .bg-slate-200 {
+  background-color: #1e293b !important;
+}
+
+.theme-dark .border-slate-200,
+.theme-dark .border-blue-100 {
+  border-color: #1e293b !important;
+}
+
+.theme-dark .text-slate-950,
+.theme-dark .text-slate-900,
+.theme-dark .text-slate-800,
+.theme-dark .text-slate-700 {
+  color: #f8fafc !important;
+}
+
+.theme-dark .text-slate-600,
+.theme-dark .text-slate-500,
+.theme-dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+.theme-dark input,
+.theme-dark select {
+  background-color: #020617 !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
