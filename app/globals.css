@@ -93,19 +93,38 @@ select {
 }
 
 .scan-stream {
-  width: max-content;
-  min-width: 100%;
+  align-items: center;
+  display: flex;
+  min-height: 1.5rem;
   white-space: nowrap;
-  animation: scan-stream 8s linear infinite;
 }
 
-@keyframes scan-stream {
-  from {
-    transform: translateX(0);
+.scan-stream__cursor {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.scan-stream__word {
+  animation: scan-word 760ms ease-in-out both;
+  display: inline-block;
+  letter-spacing: 0.04em;
+}
+
+@keyframes scan-word {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
   }
 
-  to {
-    transform: translateX(-42%);
+  18%,
+  78% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
   }
 }
 
