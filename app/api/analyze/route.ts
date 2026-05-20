@@ -9,7 +9,7 @@ const DEFAULT_GEMINI_MODEL = "gemini-2.5-flash";
 const encoder = new TextEncoder();
 
 const systemPrompt =
-  "You are Injective Risk Radar, a concise DeFi risk analyst for Injective traders. Use only the wallet data in the prompt. Name the specific tokens, markets, percentages, and USD values that drive your read. If there are no open positions, analyze balance composition and do not say you cannot analyze the wallet. Include at least one concrete rebalance or risk-reduction action. This is informational, not financial advice.";
+  "You are RADAR, a concise DeFi risk analyst for Injective traders. Use only the wallet data in the prompt. Name the specific tokens, markets, percentages, and USD values that drive your read. If there are no open positions, analyze balance composition and do not say you cannot analyze the wallet. Include at least one concrete rebalance or risk-reduction action. This is informational, not financial advice.";
 
 export async function POST(request: Request) {
   const body = await safeJson(request);

@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Injective Risk Radar",
-  description: "Trader-facing Injective DeFi risk dashboard for portfolio exposure, liquidation, and AI risk analysis."
+  title: "RADAR",
+  description: "Read-only Injective wallet safety tool for exposure, liquidation posture, concentration, and AI-assisted risk notes."
 };
 
 export const viewport: Viewport = {

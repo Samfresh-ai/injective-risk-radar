@@ -40,7 +40,7 @@ export function WalletInput({
             Open an Injective wallet risk console.
           </h2>
           <p className="mt-3 break-words text-sm leading-6 text-slate-600">
-            Risk Radar reads live Injective portfolio data, then opens a wallet response view with
+            RADAR reads live Injective portfolio data, then opens a wallet response view with
             portfolio details, risk analytics, and recent activity sections.
           </p>
         </div>

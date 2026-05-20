@@ -13,10 +13,10 @@ export function AppSidebar({ activeView, darkMode, onNavigate, onToggleTheme }: 
       <div className="flex h-full flex-col">
         <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-5 dark:border-slate-800">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 font-mono text-sm font-black text-white shadow-sm">
-            IR
+            R
           </div>
           <div>
-            <p className="text-lg font-bold tracking-tight text-slate-950 dark:text-slate-50">Risk Radar</p>
+            <p className="text-lg font-bold tracking-tight text-slate-950 dark:text-slate-50">RADAR</p>
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Injective</p>
           </div>
         </div>

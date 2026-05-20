@@ -1,12 +1,12 @@
-# Injective Risk Radar
+# RADAR
 
-Injective Risk Radar is a lightweight safety tool for Injective users. Paste an `inj...` wallet, scan live Injective indexer data, and get a clean readout of portfolio balances, exposure, liquidation posture, concentration risk, and AI-assisted risk notes before making a decision.
+RADAR is a lightweight safety tool for Injective users. Paste an `inj...` wallet, scan live Injective indexer data, and get a clean readout of portfolio balances, exposure, liquidation posture, concentration risk, and AI-assisted risk notes before making a decision.
 
 It is intentionally minimal right now. The MVP does not store data, connect wallets, execute trades, run background jobs, or require authentication. That is a product choice for the first version: the safest demo path is a read-only risk check that cannot move funds, sign transactions, collect private keys, or pretend to know more than the indexer returns.
 
 ## Why This Makes Injective Safer
 
-Injective gives users fast access to markets, leverage, orders, and on-chain portfolio data. That speed is useful, but it also makes it easy to miss basic risk signals before taking action. Risk Radar adds a neutral review layer in front of that moment.
+Injective gives users fast access to markets, leverage, orders, and on-chain portfolio data. That speed is useful, but it also makes it easy to miss basic risk signals before taking action. RADAR adds a neutral review layer in front of that moment.
 
 The tool helps users see:
 
@@ -241,7 +241,7 @@ Do not expose `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, or `GOOGLE_API_KEY` through
 
 ## Submission Notes
 
-Injective Risk Radar is built for a hackathon/demo review path:
+RADAR is built for a hackathon/demo review path:
 
 - Working app: scan a wallet and inspect the tabbed response UI.
 - Injective integration: live account portfolio, market, position, order, and pricing data through Injective SDK/indexer APIs.
