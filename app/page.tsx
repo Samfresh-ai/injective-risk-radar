@@ -29,6 +29,7 @@ type MainView = "home" | "market";
 
 const injectiveAddressPattern = /^inj1[0-9a-z]{38,58}$/;
 const docsUrl = "https://github.com/Samfresh-ai/injective-risk-radar#readme";
+const minimumScanDisplayMs = 3200;
 
 export default function Home() {
   const [address, setAddress] = useState("");
@@ -69,6 +70,7 @@ export default function Home() {
     let nextPortfolio: PortfolioResponse;
 
     try {
+      const scanStartedAt = Date.now();
       const response = await fetch(
         "/api/portfolio?address=" +
           encodeURIComponent(nextTarget.address) +
@@ -82,6 +84,7 @@ export default function Home() {
       }
 
       nextPortfolio = payload as PortfolioResponse;
+      await waitForMinimumScanDisplay(scanStartedAt);
       setPortfolio(nextPortfolio);
     } catch (error) {
       setPortfolio(null);
@@ -350,6 +353,16 @@ function ErrorCard({ message, onRetry }: { message: string; onRetry: () => void 
 
 function safeErrorMessage(error: unknown, fallback: string) {
   return error instanceof Error && error.message ? error.message : fallback;
+}
+
+function waitForMinimumScanDisplay(startedAt: number) {
+  const remaining = minimumScanDisplayMs - (Date.now() - startedAt);
+
+  if (remaining <= 0) {
+    return Promise.resolve();
+  }
+
+  return new Promise((resolve) => window.setTimeout(resolve, remaining));
 }
 
 function BalanceOverview({ portfolio }: { portfolio: PortfolioResponse }) {
