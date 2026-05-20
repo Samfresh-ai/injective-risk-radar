@@ -1,8 +1,33 @@
 # Injective Risk Radar
 
-Injective Risk Radar is a stateless wallet risk console for Injective users. Paste an `inj...` wallet, scan live Injective indexer data, and get a clean response UI with portfolio balances, risk analytics, recent activity state, and an AI-assisted risk readout.
+Injective Risk Radar is a lightweight safety tool for Injective users. Paste an `inj...` wallet, scan live Injective indexer data, and get a clean readout of portfolio balances, exposure, liquidation posture, concentration risk, and AI-assisted risk notes before making a decision.
 
-The MVP does not store data, connect wallets, execute trades, run background jobs, or require authentication.
+It is intentionally minimal right now. The MVP does not store data, connect wallets, execute trades, run background jobs, or require authentication. That is a product choice for the first version: the safest demo path is a read-only risk check that cannot move funds, sign transactions, collect private keys, or pretend to know more than the indexer returns.
+
+## Why This Makes Injective Safer
+
+Injective gives users fast access to markets, leverage, orders, and on-chain portfolio data. That speed is useful, but it also makes it easy to miss basic risk signals before taking action. Risk Radar adds a neutral review layer in front of that moment.
+
+The tool helps users see:
+
+- whether the wallet has known balances and priced value
+- whether open positions or orders create leverage exposure
+- how concentrated the tracked portfolio is
+- whether liquidation distance data exists
+- what parts of the wallet could not be priced reliably
+- a plain-language risk summary generated from deterministic metrics
+
+The goal is not to trade for the user. The goal is to make the wallet state easier to understand before the user makes a move.
+
+## Current State
+
+This is a submission-ready MVP, not a full risk platform. It proves the core safety loop:
+
+```text
+wallet address -> live Injective read -> deterministic metrics -> clear risk UI -> AI explanation
+```
+
+The app stays minimal because adding wallet connection, transaction signing, alerts, persistence, or automated recommendations would increase risk and review scope. Those features should come after the read-only analysis layer is dependable.
 
 ## Demo Flow
 
